@@ -16,5 +16,10 @@ def packet_callback(packet):
         except AttributeError:
             print("no playload found")
             
+def receive_data():
+    print("wating for ICMP packets .....")
+    sniff(filter="icmp", prn=packet_callback, store=0, count=10)
 
-            
+if __name__ == "__main__":
+    receive_data()
+    
