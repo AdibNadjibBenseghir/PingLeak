@@ -16,3 +16,10 @@ if __name__=="__main__":
         sys.exit(1)
     ip_dest = sys.argv[1]
     file_path = sys.argv[2]
+    
+    try:
+        with open(file_path, 'r') as file:
+            data = file.read()
+        sendy(ip_dest, data)
+    except FileNotFoundError:
+        print("ERREUR file not found")
